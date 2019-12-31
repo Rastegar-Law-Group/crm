@@ -1,0 +1,88 @@
+<?php
+$GLOBALS['app_list_strings']['marketing_source_list']=array (
+  'google' => 'Google',
+  'bing' => 'Bing',
+  'display_ad' => 'Display Ad',
+  'yelp' => 'Yelp',
+  'facebook' => 'Facebook',
+  'instagram' => 'Instagram',
+  'el_latino' => 'El Latino',
+  'el_classificado' => 'El Classificado',
+  'los_defensores' => 'Walker Advertising (Los Defensores)',
+  'e_local' => 'E-Local',
+  'personal_referral' => 'Personal Referral',
+  'personal_outreach' => 'Personal Outreach',
+  'flyer' => 'Flyer',
+  'postcard' => 'Postcard',
+  'cannot_recall' => 'Cannot Recall',
+  'other' => 'Other',
+);
+$app_strings['LBL_GROUPTAB0_1563517072'] = 'New Group';
+
+$app_strings['LBL_GROUPTAB0_1563517133'] = 'Leads';
+
+$GLOBALS['app_list_strings']['salutation_list']=array (
+  '' => '',
+  'mr' => 'Mr.',
+  'mrs' => 'Mrs.',
+  'ms' => 'Ms.',
+);
+$GLOBALS['app_list_strings']['marketing_source_list']=array (
+  '' => '',
+  'google' => 'Google',
+  'bing' => 'Bing',
+  'display_ad' => 'Display Ad',
+  'yelp' => 'Yelp',
+  'facebook' => 'Facebook',
+  'instagram' => 'Instagram',
+  'el_latino' => 'El Latino',
+  'el_classificado' => 'El Classificado',
+  'los_defensores' => 'Walker Advertising (Los Defensores)',
+  'e_local' => 'E-Local',
+  'personal_referral' => 'Personal Referral',
+  'personal_outreach' => 'Personal Outreach',
+  'flyer' => 'Flyer',
+  'postcard' => 'Postcard',
+  'cannot_recall' => 'Cannot Recall',
+  'other' => 'Other',
+);
+$GLOBALS['app_list_strings']['preferred_language_list']=array (
+  '' => '',
+  'English' => 'English',
+  'Spanish' => 'Spanish',
+  'Farsi' => 'Farsi',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['account_type_dom']=array (
+  '' => '',
+  'Terminated' => 'Terminated',
+  'Employed' => 'Employed',
+  'Suspended' => 'Suspended',
+  'Probation' => 'Probation',
+  'Quit' => 'Quit',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['num_employees_list']=array (
+  '' => '',
+  'rng1to5' => '1 - 5',
+  'rng6to10' => '6 - 10',
+  'rng11to15' => '11 - 15',
+  'rng16to20' => '16 - 20',
+  'rng21to25' => '21 - 25',
+  'rng26to30' => '26 - 30',
+  'rng31to35' => '31 - 35',
+  'rng36to40' => '36 - 40',
+  'rng41to45' => '41 - 45',
+  'rng46to50' => '46 - 50',
+  'rng51to55' => '51 - 55',
+  'rng56to60' => '56 - 60',
+  'rng61to65' => '61 - 65',
+  'rng66to70' => '66 - 70',
+  'rng71to75' => '71 - 75',
+  'rng76to80' => '76 - 80',
+  'rng81to85' => '81 - 85',
+  'rng86to90' => '86 - 90',
+  'rng91to95' => '91 - 95',
+  'rng96to100' => '96 - 100',
+  'rng100ovr' => '100+',
+);

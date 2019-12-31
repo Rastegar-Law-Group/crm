@@ -1,0 +1,6 @@
+<?php
+ // created: 2019-07-15 08:35:05
+$dictionary['Lead']['fields']['address_where_you_worked_c']['inline_edit']='1';
+$dictionary['Lead']['fields']['address_where_you_worked_c']['labelValue']='Address where you worked';
+
+ ?>
