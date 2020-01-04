@@ -67,6 +67,18 @@ array (
               ),
             ),
           ),
+          6 => 
+          array (
+            'customCode' => '{$request_atttorney_approval}',
+          ),
+          7 => 
+          array (
+            'customCode' => '{$approve_case_conversion}',
+          ),
+          8 => 
+          array(
+            'customCode' => '{$reject_case_conversion}',
+          ),
           'AOS_GENLET' => 
           array (
             'customCode' => '<input type="button" class="button" onClick="showPopup();" value="{$APP.LBL_PRINT_AS_PDF}">',
@@ -93,6 +105,10 @@ array (
         0 => 
         array (
           'file' => 'modules/Leads/Lead.js',
+        ),
+        1 => 
+        array (
+          'file' => 'custom/modules/Leads/js/lead_conversion.js',
         ),
       ),
       'useTabs' => true,
@@ -329,6 +345,11 @@ array (
             'comment' => 'Sign-Up Reason',
             'label' => 'LBL_SIGN_UP_REASON',
           ),
+        ),
+        1 => 
+        array(
+          0 => 'status',
+          1 => '',
         ),
       ),
     ),
