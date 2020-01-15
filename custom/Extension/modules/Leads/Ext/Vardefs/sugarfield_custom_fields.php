@@ -43,6 +43,7 @@
         'module' => 'Users',
         'table' => 'users',
         'link' => 'attorney_lead_c',
+        'inline_edit' => false,
     );
     $dictionary['Lead']['fields']['attorney_lead_c'] = array(
         'name' => 'attorney_lead_c',
@@ -62,5 +63,10 @@
         'audited' => true,
         'comment' => 'Action date',
         'enable_range_search' => true,
+        'inline_edit' => false,
+        'readonly' => true,
     );
+    $dictionary['Lead']['fields']['status']['inline_edit'] = false;
+    $dictionary['Lead']['fields']['status']['readonly'] = true;
+
 ?>

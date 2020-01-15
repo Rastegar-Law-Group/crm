@@ -1,5 +1,5 @@
 <?php
-// created: 2019-12-31 19:24:20
+// created: 2020-01-09 17:38:59
 $mod_strings = array (
   'LBL_POTENTIAL_CASE' => 'Potential Case Description',
   'LBL_EMPLOYER_NAME' => 'Employer Name',
@@ -30,4 +30,9 @@ $mod_strings = array (
   'LBL_RENT_AMT' => 'Monthly Rent Amount',
   'LBL_LATEFEE_AMT' => 'Monthly Late Fee Amount',
   'LBL_PREFERRED_COMM' => 'Preferred Communication',
+  'LBL_OPPORTUNITIES' => 'Cases',
+  'LBL_OPPORTUNITY_AMOUNT' => 'Case Amount:',
+  'LBL_OPPORTUNITY_ID' => 'Case ID',
+  'LBL_OPPORTUNITY_NAME' => 'Case Name:',
+  'LBL_CONVERTED_OPP' => 'Converted Case:',
 );

@@ -351,6 +351,11 @@ array (
           0 => 'status',
           1 => '',
         ),
+        2 =>
+        array(
+          0 => 'attorney_name',
+          1 => 'action_date',
+        ),
       ),
     ),
   ),

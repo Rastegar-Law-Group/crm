@@ -34,6 +34,7 @@ function submitApprovalRequest(){
             async: "false",
             success:function(data) {
                 SUGAR.ajaxUI.hideLoadingPanel();
+                $('#mainModal').addClass('reload');
                 modalContent(
                     "Request Atttorney Approval",
                     `Lead Approval Request has been submitted to selected Attorney`,
@@ -57,7 +58,13 @@ function approveCaseConversion(){
         async: "false",
         success:function(data) {
             SUGAR.ajaxUI.hideLoadingPanel();
-            console.log(data);
+            $('#mainModal').addClass('reload');
+            response = JSON.parse(data);
+            modalContent(
+                "Case Approved",
+                response.message,
+                `<button type="Cancel" onclick="closeModal()" value="Cancel">Cancel</button>`
+            );
         },error:function(e){
             console.log("Error in AJAX CALL at function:approveCaseConversion custom/modules/leads/js/lead_conversion.js");
         }
@@ -73,7 +80,13 @@ function rejectCaseConversion(){
         async: "false",
         success:function(data) {
             SUGAR.ajaxUI.hideLoadingPanel();
-            console.log(data);
+            $('#mainModal').addClass('reload');
+            response = JSON.parse(data);
+            modalContent(
+                "Case Rejected",
+                response.message,
+                `<button type="Cancel" onclick="closeModal()" value="Cancel">Cancel</button>`
+            );
         },error:function(e){
             console.log("Error in AJAX CALL at function:rejectCaseConversion custom/modules/leads/js/lead_conversion.js");
         }
@@ -90,6 +103,9 @@ function modalContent(header,body,footer){
 
 function closeModal(){
     $('#mainModal').css('display','none');
+    if($('#mainModal').hasClass('reload')){
+        window.location.reload();
+    }
 }
 
 function addModalHTML(){
@@ -113,6 +129,13 @@ function addModalHTML(){
     });
 }
 
+function showHideAttorneyResponsibleFields(){
+    if( $('#status').val() != "Approved" && $('#status').val() != "Rejected" ){
+        $('#attorney_id').parent().parent().parent().remove();
+    }
+}
+
 $( document ).ready(function() {
     addModalHTML();
+    //showHideAttorneyResponsibleFields();
 });
