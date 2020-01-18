@@ -103,7 +103,7 @@ function submitAttorneyApproveRequest($record,$attorneyId){
     $leadBean->attorney_targets = json_encode($attorneytargets);
     $leadBean->save();
 
-    sendEmail(["name" => "Attorney Approve Request","attorney" => $attorneyId,"lead" => $record]);
+    sendEmail(["name" => "[NEW] Attorney Approve Request","attorney" => $attorneyId,"lead" => $record]);
     return ['status' => 1]; 
 }
 
@@ -116,7 +116,7 @@ function sendEmail($template){
     $emailTemplate->parsed_entities = null;
     $emailRecepients = "";
     $template_data = [];
-    if( $template["name"] == "Attorney Approve Request" ){
+    if( $template["name"] == "[NEW] Attorney Approve Request" ){
         $focus = BeanFactory::getBean('Leads',$template["lead"]);
         $template_data = $emailTemplate->parse_email_template([
             "subject" => $emailTemplate->subject,
@@ -133,7 +133,7 @@ function sendEmail($template){
         $emailRecepients = $attorneyBean->email1;
     }
 
-    if( $template["name"] == "New Case Creation - Email to Farzand" ){
+    if( $template["name"] == "[NEW] Notify Farzad on New Case Creation" ){
         $focus = BeanFactory::getBean('Opportunities',$template["opportunity"],['disable_row_level_security' => true]);
         $template_data = $emailTemplate->parse_email_template([
             "subject" => $emailTemplate->subject,
@@ -182,7 +182,7 @@ function AttorneyApproveRejectRequest($record,$type){
         $leadBean->converted = 1;
         $leadBean->opportunity_id = $oppBean->id;
         $leadBean->save();
-        sendEmail(["name" => "New Case Creation - Email to Farzand","opportunity" => $oppBean->id]);
+        sendEmail(["name" => "[NEW] Notify Farzad on New Case Creation","opportunity" => $oppBean->id]);
         return [
             'status' => 1, 
             'message' => 'Lead has been approved', 
