@@ -35,6 +35,13 @@ array (
         ),
       ),
       'javascript' => '<script type="text/javascript" language="Javascript">function copyAddressRight(form)  {ldelim} form.alt_address_street.value = form.primary_address_street.value;form.alt_address_city.value = form.primary_address_city.value;form.alt_address_state.value = form.primary_address_state.value;form.alt_address_postalcode.value = form.primary_address_postalcode.value;form.alt_address_country.value = form.primary_address_country.value;return true; {rdelim} function copyAddressLeft(form)  {ldelim} form.primary_address_street.value =form.alt_address_street.value;form.primary_address_city.value = form.alt_address_city.value;form.primary_address_state.value = form.alt_address_state.value;form.primary_address_postalcode.value =form.alt_address_postalcode.value;form.primary_address_country.value = form.alt_address_country.value;return true; {rdelim} </script>',
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/modules/Leads/js/editview.js',
+        ),
+      ),
       'useTabs' => true,
       'tabDefs' => 
       array (
@@ -98,6 +105,15 @@ array (
         array (
           0 => 
           array (
+            'name' => 'case_type',
+            'label' => 'LBL_CASE_TYPE',
+          ),
+          1 => '',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
             'name' => 'employer_name_c',
             'label' => 'LBL_EMPLOYER_NAME',
           ),
@@ -107,7 +123,7 @@ array (
             'label' => 'LBL_LANDLORD_NAME',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -121,7 +137,7 @@ array (
             'label' => 'LBL_RENT_AMT',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -135,7 +151,7 @@ array (
             'label' => 'LBL_LATEFEE_AMT',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -144,7 +160,7 @@ array (
             'label' => 'LBL_PREFERRED_LANGUAGE',
           ),
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -153,7 +169,7 @@ array (
             'label' => 'LBL_PREFERRED_COMM',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -162,7 +178,7 @@ array (
             'label' => 'LBL_MARKETING_SOURCE',
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
@@ -170,7 +186,7 @@ array (
             'label' => 'LBL_AVAIL_FROM',
           ),
         ),
-        12 => 
+        13 => 
         array (
           0 => 
           array (
@@ -178,7 +194,7 @@ array (
             'label' => 'LBL_AVAIL_TO',
           ),
         ),
-        13 => 
+        14 => 
         array (
           0 => 
           array (
