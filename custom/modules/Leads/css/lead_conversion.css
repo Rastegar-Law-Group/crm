@@ -1,0 +1,116 @@
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+	margin-top: 15% !important;
+}
+
+div.modal-header{
+    padding: 0px !important;	
+}
+
+
+div.modal-content{
+width:500px !important;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#mainModal{
+margin:0px;
+padding:0px;
+}
+
+#mainModal .modal-content{
+    margin: auto;
+    padding: 0px;
+    margin-top: 10%;
+    border: 0px;
+    width: 500px;
+border-radius: 0px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px; 
+    box-shadow: 0 0px 12px 0px rgba(0, 0, 0, 0.43);
+}
+
+#mainModal .modal-content .modal-header{
+padding: 10px !important;
+}
+
+#mainModal .modal-content .modal-header #modalHeader{
+	margin:0px;
+	padding:5px;
+}
+
+#mainModal .modal-content .close{
+    float: right;
+    font-size: 19px;
+    font-weight: 700;
+    padding: 4px 8px 6px 8px;
+    border-radius: 3px;
+    line-height: 1;
+    color: #797979;
+    opacity: 1;
+    background: #e2e2e2;
+    text-shadow: none;
+} 
+
+#mainModal .modal-content .modal-body p{
+line-height: 26px;
+} 
+
+#mainModal .modal-content .modal-body ul li{
+    list-style: none;
+} 
+
+
+#mainModal .modal-content .modal-footer button{
+    background: #8c8c8c;
+    color: #fff;
+    padding: 7px 22px 7px 22px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 0px;
+    margin-left: 6px;
+    border-radius:2px;
+	transition:0.7s;
+}
+
+#mainModal .modal-content .modal-footer button:hover{
+    background: #6d6d6d;
+    color: #fff;     
+	transition:0.7s;
+    border-radius:22px;
+}

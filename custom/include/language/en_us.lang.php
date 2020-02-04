@@ -234,3 +234,10 @@ $GLOBALS['app_list_strings']['marketing_source_list']=array (
   'Cannot Recall' => 'Cannot Recall',
   'Other' => 'Other',
 );
+$app_list_strings['moduleList']['Opportunities']='Cases';
+$app_list_strings['moduleList']['Cases']='Tickets';
+$app_list_strings['moduleListSingular']['Opportunities']='Case';
+$app_list_strings['moduleListSingular']['Cases']='Ticket';
+$app_list_strings['record_type_display']['Opportunities']='Case';
+$app_list_strings['parent_type_display']['Opportunities']='Case';
+$app_list_strings['record_type_display_notes']['Opportunities']='Case';
