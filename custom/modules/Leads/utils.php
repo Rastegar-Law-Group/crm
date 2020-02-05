@@ -124,8 +124,8 @@ function sendEmail($template){
             "body" => $emailTemplate->body], 'Leads', $focus, $macro_nv);
 
         $attorneyBean = BeanFactory::getBean('Users',$template["attorney"]);
-        $rejectLink = "<a href = '".$sugar_config['site_url']."/index.php?entryPoint=rejectCaseConversion&record=".$focus->id."'>Deny Lead</a>";
-        $approveLink = "<a href = '".$sugar_config['site_url']."/index.php?entryPoint=approveCaseConversion&record=".$focus->id."'>Approve Lead</a>";
+        $rejectLink = "<a href = '".$sugar_config['site_url']."/index.php?entryPoint=rejectCaseConversion&record=".$focus->id."' style='font-size: 15px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #ffffff; text-decoration: none; padding: 10px 20px; line-height: 35px; margin: 15px; background-color: #b12a2a; border-radius: 5px; width: 500px;'>Reject Lead</a>";
+        $approveLink = "<a href = '".$sugar_config['site_url']."/index.php?entryPoint=approveCaseConversion&record=".$focus->id."' style='font-size: 15px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #ffffff; text-decoration: none; padding: 10px 20px; line-height: 35px; margin: 15px; background-color: #b12a2a; border-radius: 5px; width: 500px;'>Approve Lead</a>";
         
         $template_data["body_html"] = str_replace("##attorney##",$attorneyBean->name,$template_data["body_html"]);
         $template_data["body_html"] = str_replace("##reject_link##",$rejectLink,$template_data["body_html"]);
@@ -185,7 +185,7 @@ function AttorneyApproveRejectRequest($record,$type){
         sendEmail(["name" => "[NEW] Notify Farzad on New Case Creation","opportunity" => $oppBean->id]);
         return [
             'status' => 1, 
-            'message' => 'Lead has been approved', 
+            'message' => 'The lead has been approved.', 
         ];
     }elseif( $leadBean->status == 'SubmittedForApproval' && $type == 'reject' ){
         $leadBean->attorney_id = $current_user->id;
@@ -194,22 +194,22 @@ function AttorneyApproveRejectRequest($record,$type){
         $leadBean->save();
         return [
             'status' => 1, 
-            'message' => 'Lead has been rejected', 
+            'message' => 'The lead has been rejected.', 
         ];
     }elseif( $leadBean->status == 'Approved' ){
         return [
             'status' => -1, 
-            'message' => 'Lead is already approved by attorney '.$leadBean->attorney_name, 
+            'message' => 'This lead is already approved by<br/>Attorney <b>'.$leadBean->attorney_name.'</b>.', 
         ];
     }elseif( $leadBean->status == 'Rejected' ){
         return [
             'status' => -1, 
-            'message' => 'Lead is already rejected by attorney '.$leadBean->attorney_name, 
+            'message' => 'This lead is already rejected by<br/>Attorney <b>'.$leadBean->attorney_name.'</b>.', 
         ];
     }else{
         return [
             'status' => -11, 
-            'message' => 'This is an error!', 
+            'message' => 'An unknown error occurred.', 
         ];
     }
 }

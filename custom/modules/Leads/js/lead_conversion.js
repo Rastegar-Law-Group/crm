@@ -8,11 +8,12 @@ function requestAtttorneyApprovalPopup(){
             SUGAR.ajaxUI.hideLoadingPanel();
             response = JSON.parse(data);
             modalBody = '';
+            modalBody += '<p style="font-size: 15px;">Choose an attorney to submit the Approval Request for this lead:</p>';
             for (var key in response) {
-                modalBody += `<p><input type="radio" name="attorneys_avail" value="${key}"/> ${response[key]}</p>`; 
+                modalBody += `<p style="font-size: 15px;"><input type="radio" name="attorneys_avail" value="${key}" style="margin-right: 3px; margin-bottom: 4px;"/> ${response[key]}</p>`; 
             }
             modalContent(
-                "Request Atttorney Approval",
+                "Request Attorney Approval",
                 modalBody,
                 `<button type="submit" onclick="submitApprovalRequest()" value="Submit">Submit</button>
                 <button type="Cancel" onclick="closeModal()" value="Cancel">Cancel</button>`
@@ -35,10 +36,11 @@ function submitApprovalRequest(){
             success:function(data) {
                 SUGAR.ajaxUI.hideLoadingPanel();
                 $('#mainModal').addClass('reload');
-                modalContent(
-                    "Request Atttorney Approval",
-                    `Lead Approval Request has been submitted to selected Attorney`,
-                    `<button type="Cancel" onclick="closeModal()" value="Cancel">Cancel</button>`
+                modalContentSuccess(
+                    "Approval Submitted",
+                    `This lead has been successfully submitted for`,
+                    `Approval Request to the selected Attorney.`,
+                    `<button type="Cancel" onclick="closeModal()" value="Cancel">Close</button>`
                 );
             },error:function(e){
                 console.log("Error in AJAX CALL at function:submitApprovalRequest custom/modules/leads/js/lead_conversion.js");
@@ -95,7 +97,15 @@ function rejectCaseConversion(){
 
 function modalContent(header,body,footer){
     $('#modalHeader').html(header);
-    $('#modalBody').html(body);
+    $('#modalBody').html('<p style="font-size: 15px; line-height: 22px; text-align: center;">'+body+'</p>');
+    $("#modalHeader" ).trigger( "click" );
+    $('#modalFooter').html(footer);
+    $('#mainModal').css('display','block');
+}
+
+function modalContentSuccess(header,body1,body2,footer){
+    $('#modalHeader').html(header);
+    $('#modalBody').html('<p style="font-size: 15px;">'+body1+'<br/>'+body2+'</p>');
     $("#modalHeader" ).trigger( "click" );
     $('#modalFooter').html(footer);
     $('#mainModal').css('display','block');
@@ -110,10 +120,10 @@ function closeModal(){
 
 function addModalHTML(){
     var modalHtml= '<div id="mainModal" class="modal">  '+
-                    '<div class="modal-content">'+
+                    '<div class="modal-content" style="border-radius: 5px;">'+
                         '<div class="modal-header">'+
                             '<span id="modalClose" class="close">&times;</span>'+
-                        '<h2 id="modalHeader"> </h2>'+
+                        '<h2 id="modalHeader" style="font-size: 24px;"> </h2>'+
                     '</div>'+
                     '<div id="modalBody" class="modal-body">'+
                         '<p>Some text in the Modal Body</p>'+
