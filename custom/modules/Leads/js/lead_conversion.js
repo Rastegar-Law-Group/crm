@@ -56,7 +56,7 @@ function approveCaseConversion(){
     $( "body" ).trigger( "click" );
     SUGAR.ajaxUI.showLoadingPanel();
     $.ajax({
-        url:`index.php?entryPoint=approveCaseConversion&record=${record}`,
+        url:`index.php?entryPoint=approveCaseConversion&record=${record}&req_type=AJAX`,
         async: "false",
         success:function(data) {
             SUGAR.ajaxUI.hideLoadingPanel();
@@ -78,7 +78,7 @@ function rejectCaseConversion(){
     $( "body" ).trigger( "click" );
     SUGAR.ajaxUI.showLoadingPanel();
     $.ajax({
-        url:`index.php?entryPoint=rejectCaseConversion&record=${record}`,
+        url:`index.php?entryPoint=rejectCaseConversion&record=${record}&req_type=AJAX`,
         async: "false",
         success:function(data) {
             SUGAR.ajaxUI.hideLoadingPanel();

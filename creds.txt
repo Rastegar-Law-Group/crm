@@ -1,3 +1,15 @@
 twilio sip
 rastegarlawgroup
 Rlg960096009600
+
+
+
+mysqldump -urastegar_crm711 -p rastegar_crm711 > rastegar_crm_staging.sql
+
+O]s6bSMfL]3e
+
+mysql -urastegar_crm711 -p 
+
+
+
+qa-intake / admin@123
