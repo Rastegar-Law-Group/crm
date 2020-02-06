@@ -16,4 +16,11 @@ $app_list_strings['sign_up_reason_list'] = array(
     'RLG interested' => 'RLG interested', 
 );
 
+$app_list_strings['lead_status_dom'] = array(
+    'New' => 'New',
+    'SubmittedForApproval' => 'Submitted For Approval',
+    'Approved' => 'Approved',
+    'Rejected' => 'Rejected',
+);
+
 ?>

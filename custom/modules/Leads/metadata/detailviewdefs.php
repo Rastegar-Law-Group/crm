@@ -67,6 +67,18 @@ array (
               ),
             ),
           ),
+          6 => 
+          array (
+            'customCode' => '{$request_atttorney_approval}',
+          ),
+          7 => 
+          array (
+            'customCode' => '{$approve_case_conversion}',
+          ),
+          8 => 
+          array (
+            'customCode' => '{$reject_case_conversion}',
+          ),
           'AOS_GENLET' => 
           array (
             'customCode' => '<input type="button" class="button" onClick="showPopup();" value="{$APP.LBL_PRINT_AS_PDF}">',
@@ -93,6 +105,10 @@ array (
         0 => 
         array (
           'file' => 'modules/Leads/Lead.js',
+        ),
+        1 => 
+        array (
+          'file' => 'custom/modules/Leads/js/lead_conversion.js',
         ),
       ),
       'useTabs' => true,
@@ -164,6 +180,15 @@ array (
         array (
           0 => 
           array (
+            'name' => 'case_type',
+            'label' => 'LBL_CASE_TYPE',
+          ),
+          1 => '',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
             'name' => 'employer_name_c',
             'label' => 'LBL_EMPLOYER_NAME',
           ),
@@ -173,7 +198,7 @@ array (
             'label' => 'LBL_LANDLORD_NAME',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -187,7 +212,7 @@ array (
             'label' => 'LBL_RENT_AMT',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -201,7 +226,7 @@ array (
             'label' => 'LBL_LATEFEE_AMT',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -210,7 +235,7 @@ array (
             'label' => 'LBL_PREFERRED_LANGUAGE',
           ),
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -219,7 +244,7 @@ array (
             'label' => 'LBL_PREFERRED_COMM',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -228,7 +253,7 @@ array (
             'label' => 'LBL_MARKETING_SOURCE',
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
@@ -236,7 +261,7 @@ array (
             'label' => 'LBL_AVAIL_FROM',
           ),
         ),
-        12 => 
+        13 => 
         array (
           0 => 
           array (
@@ -244,7 +269,7 @@ array (
             'label' => 'LBL_AVAIL_TO',
           ),
         ),
-        13 => 
+        14 => 
         array (
           0 => 
           array (
