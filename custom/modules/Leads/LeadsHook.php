@@ -6,7 +6,7 @@ class LeadsHook{
 	*/
 	function visitorAssignment($bean, $event, $arguments){
         if(empty($bean->created_by)){
-            $bean->created_by = '238ae03a-778d-9c28-5265-5e3ee4b14168';
+            $bean->created_by = '62b05615-3fa5-c430-f737-5e3ee881e0a1';
         }
     }
 }
