@@ -10,6 +10,6 @@ $hook_array['before_save'][] = Array(77, 'updateGeocodeInfo', 'modules/Leads/Lea
 $hook_array['after_save'] = Array(); 
 $hook_array['after_save'][] = Array(77, 'updateRelatedMeetingsGeocodeInfo', 'modules/Leads/LeadsJjwg_MapsLogicHook.php','LeadsJjwg_MapsLogicHook', 'updateRelatedMeetingsGeocodeInfo'); 
 
-
+$hook_array['before_save'][] = Array(1, 'Leads Visitor Assignment', 'custom/modules/Leads/LeadsHook.php','LeadsHook', 'visitorAssignment'); 
 
 ?>
