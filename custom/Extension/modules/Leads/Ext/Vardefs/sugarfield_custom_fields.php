@@ -69,4 +69,11 @@
     $dictionary['Lead']['fields']['status']['inline_edit'] = false;
     $dictionary['Lead']['fields']['status']['readonly'] = true;
 
+    $dictionary['Lead']['fields']['rent_amt_c']['required'] = false;
+    $dictionary['Lead']['fields']['latefee_amt_c']['required'] = false;
+    $dictionary['Lead']['fields']['num_employees_c']['required'] = false;
+    $dictionary['Lead']['fields']['employment_status_c']['required'] = false;
+
+
+
 ?>
