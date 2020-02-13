@@ -147,9 +147,8 @@ function sendEmail($template){
         $focusUser = BeanFactory::getBean('Users',$focus->created_by); 
         $template_data["body_html"] = str_replace("##created_by##",$focusUser->full_name,$template_data["body_html"]);
         
-        $farzandUser = BeanFactory::getBean('Users','5645287b-108f-ff0e-85a4-5cfb163f39fb');
-        //$farjadUser = BeanFactory::getBean('Users','59b089ae-777a-d7a1-58c9-5e099deb5a16');
-        $emailRecepients = $farjadUser->email1;
+        $farzadUser = BeanFactory::getBean('Users','5645287b-108f-ff0e-85a4-5cfb163f39fb');
+        $emailRecepients = $farzadUser->email1;
     }
     $emailObj = new Email();
     $defaults = $emailObj->getSystemDefaultEmail();
