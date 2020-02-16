@@ -19,3 +19,9 @@ $entry_point_registry['submitAtttorneyApprovalRequest'] = array(
     'file' => 'custom/modules/Leads/entrypoints/submit_atttorney_approval_request.php',
     'auth' => true,
 );
+
+$entry_point_registry['assignAttorneyToCase'] = array(
+    'file' => 'custom/modules/Opportunities/entrypoints/assign_attorney_to_case.php',
+    'auth' => true,
+);
+

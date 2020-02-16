@@ -140,14 +140,47 @@ function sendEmail($template){
             "body_html" => $emailTemplate->body_html,
             "body" => $emailTemplate->body], 'Opportunities', $focus, $macro_nv);
         $oppLink = "<a href = '".$sugar_config['site_url']."/index.php?module=Opportunities&action=DetailView&record=".$focus->id."'>Case Link</a>";
-        $template_data["body_html"] = str_replace("##URL##",$oppLink,$template_data["body_html"]);
+        $tableData = '';
+        $site_url = $sugar_config['site_url'];
+        $attorneys = getSpecificRoledUser("attorney");
+        foreach( $attorneys as $attorneyKey => $attorney ){
+            $tableData .='
+                <tr>
+                    <td><strong>'.$attorney.'</strong></td>
+                    <td>
+                        <a href = "'.$site_url.'/index.php?entryPoint=assignAttorneyToCase&record='.$focus->id.'&attorney='.$attorneyKey.'">Assign</a>
+                    </td>
+                </tr>
+            ';
+        }
+        $attorneyTable = '
+            <div>
+                <label>Case:  </label>
+                <a href = "'.$site_url.'/index.php?module=Opportunities&action=DetailView&record='.$focus->id.'"><strong>'.$focus->name.'</strong></a>
+            </div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Attorney Name</th>
+                        <th>Approve Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        '.$tableData.'
+                </tbody>
+            </table>
+        ';
+
+        
         $focusUser = BeanFactory::getBean('Users',$focus->assigned_user_id); 
         $template_data["body_html"] = str_replace("##assigned_user##",$focusUser->full_name,$template_data["body_html"]);
         $template_data["subject"] = str_replace("##assigned_user##",$focusUser->full_name,$template_data["subject"]);
         $focusUser = BeanFactory::getBean('Users',$focus->created_by); 
         $template_data["body_html"] = str_replace("##created_by##",$focusUser->full_name,$template_data["body_html"]);
-        
-        $farzadUser = BeanFactory::getBean('Users','5645287b-108f-ff0e-85a4-5cfb163f39fb');
+        $template_data["body_html"] = str_replace("##URL##",htmlentities($attorneyTable),$template_data["body_html"]);
+        $template_data["body_html"] = html_entity_decode( $template_data["body_html"] );
+
+        $farzadUser = BeanFactory::getBean('Users',$sugar_config['super_attorney']);
         $emailRecepients = $farzadUser->email1;
     }
     $emailObj = new Email();
