@@ -1,5 +1,6 @@
 <?php
-	global $current_user, $sugar_config;
+    global $current_user, $sugar_config;
+    require_once("custom/modules/Opportunities/metadata/listviewdefs.php");
     
     $response = [
         'message' => 'Not Authorized!',
@@ -12,6 +13,7 @@
             $case = $_REQUEST['record'];
             $attorneyBean = BeanFactory::getBean('Users',$attorneyId);
             $caseBean = BeanFactory::getBean("Opportunities",$case);
+            global $db;
             if( $caseBean->id && $attorneyBean->id ){
                 $caseBean->assigned_user_id = $attorneyId;
                 if( $caseBean->save() ){
@@ -19,6 +21,65 @@
                         "message" => "Primary attorney [".$attorneyBean->full_name ."] has been set to case <a href = '".$sugar_config['site_url']."/index.php?module=Opportunities&action=DetailView&record=".$caseBean->id."'><strong>".$caseBean->name."</strong></a>",
                         "status" => 1,
                     ];
+
+                    $dataArray = [];
+                    $oppList = $listViewDefs["Opportunities"];
+                    $headArray = [];
+                    foreach( $oppList as $llKey => $llVal ){
+                        $field = strtolower($llKey);
+                        $fieldLabel = translate($llVal['label'], 'Opportunities');
+                        $headArray[] = $fieldLabel;
+                    }
+                    $dataArray[] = $headArray;
+                    $filename = $attorneyBean->last_name.'open_cases_'.date('d-F-Y').'.csv';
+                    $macro_nv = array();
+                    if (!$fp = fopen("upload://$filename", 'w+')){
+                        $GLOBALS['log']->fatal("failed because of permissions");
+                        return FALSE;
+                    } 
+
+
+                    $query = "select id from opportunities where assigned_user_id = '$attorneyId' and deleted = 0 and date_closed IS NULL";
+                    $res = $db->query($query);
+                    while ($casesSqlData = $db->fetchByAssoc($res) ){
+                        $caseId = $casesSqlData['id'];
+                        $casesBean = BeanFactory::getBean('Opportunities',$caseId);
+                        $tempData = [];
+                        foreach( $oppList as $llKey => $llVal ){
+                            $field = strtolower($llKey);
+                             $tempData[] = $casesBean->$field;
+                        }
+                        $dataArray [] = $tempData;
+                    }
+                    foreach ($dataArray as $line) fputcsv($fp, $line);
+            
+                    // Place stream pointer at beginning
+                    rewind($fp);
+
+                    $emailTemplate = BeanFactory::newBean('EmailTemplates');
+                    $emailTemplate->retrieve_by_string_fields(['name' => "[NEW] Attorney Case Assigned by Farzad"]);
+                    $emailTemplate->parsed_entities = null;
+                    $template_data = $emailTemplate->parse_email_template([
+                        "subject" => $emailTemplate->subject,
+                        "body_html" => $emailTemplate->body_html,
+                        "body" => $emailTemplate->body], 'Opportunities', $caseBean, $macro_nv);
+                    $emailObj = new Email();
+                    $defaults = $emailObj->getSystemDefaultEmail();
+                    $mail = new SugarPHPMailer();
+                    $mail->setMailerForSystem();
+                    $mail->From = $defaults['email'];
+                    $mail->FromName = $defaults['name'];
+                    $mail->ContentType = "text/html";
+                    
+                    $mail->Subject = $template_data["subject"];
+                    $mail->Body = from_html($template_data["body_html"]);
+                    $mail->AddAddress($attorneyBean->email1);
+
+                    $mail->AddAttachment("upload/$filename", $filename, 'base64', "text/csv");
+                    $emailResult = @$mail->Send();
+                    unlink("upload/$filename");
+
+
                 }
             }
             
