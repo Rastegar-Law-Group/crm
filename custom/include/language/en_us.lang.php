@@ -220,6 +220,7 @@ $GLOBALS['app_list_strings']['marketing_source_list']=array (
   'Google My Business' => 'Google My Business',
   'Bing' => 'Bing',
   'Display Ad' => 'Display Ad',
+  'Torkan & Farzinpour' => 'Torkan & Farzinpour',
   'Yelp' => 'Yelp',
   'Facebook' => 'Facebook',
   'Instagram' => 'Instagram',
