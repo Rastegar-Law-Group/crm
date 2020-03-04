@@ -11,4 +11,5 @@ $mod_strings = array (
   'LBL_AMOUNT' => 'Case Amount:',
   'LBL_OPPORTUNITY_NAME' => 'Case Name:',
   'LBL_MODULE_NAME' => 'Cases',
+  'LBL_DATE_CLOSED' => 'Date Closed',
 );
