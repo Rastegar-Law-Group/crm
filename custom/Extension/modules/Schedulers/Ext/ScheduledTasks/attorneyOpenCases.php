@@ -63,9 +63,9 @@ function attorneyOpenCases(){
             
             $mail->Subject = $template_data["subject"];
             $mail->Body = from_html($template_data["body_html"]);
-            //$mail->AddAddress($attorneyBean->email1);
+            $mail->AddAddress($attorneyBean->email1);
             //testing line below
-            $mail->AddAddress("farjadahmad3@gmail.com"); 
+            //$mail->AddAddress("farjadahmad3@gmail.com"); 
             
             $mail->AddAttachment("upload/$filename", $filename, 'base64', "text/csv");
             $emailResult = @$mail->Send();
